@@ -1,0 +1,16 @@
+var actions = new List<isRock.LineBot.TemplateActionBase>();
+                        actions.Add(new isRock.LineBot.MessageAction() { label = "別按", text = "別亂按" });
+                        actions.Add(new isRock.LineBot.UriAction() { label = "前往AIsports網站", uri = new Uri("https://reurl.cc/vnl9ao") });
+                        // actions.Add(new isRock.LineBot.PostbackAction() { label = "標題-發生postack", data = "abc=aaa&def=111" });
+                        //單一Button Template Message
+                        var ButtonTemplate = new isRock.LineBot.ButtonsTemplate()
+                        {
+                            text = $"{profile.displayName}!看來你很想健身",
+                            title = "Smart AI Sports",
+                            //設定圖片
+                            thumbnailImageUrl = new Uri("https://i.imgur.com/T7CVyxj.jpg"),
+                            actions = actions //設定回覆動作
+                        };
+                        this.ReplyMessage(LineEvent.replyToken, ButtonTemplate);
+                        //response OK
+                        return Ok();
